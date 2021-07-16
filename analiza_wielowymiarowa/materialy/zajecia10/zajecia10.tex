@@ -1,0 +1,235 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+  \definecolor{frameheadforeground}{RGB}{169,33,62}
+  \definecolor{frameheadbackground}{RGB}{255,255,255}
+
+  \usetheme{Warsaw}
+  %\setbeamercovered{transparent}
+}
+
+\setbeamercolor{structure}{fg=frameheadforeground,bg=frameheadbackground}
+
+\usepackage[utf8]{inputenc}
+\usepackage[MeX]{polski}
+\usepackage{multirow}
+
+\begin{document}
+
+\begin{frame}
+\title[Tytuł]{Analiza conjoint}
+
+\author{Dorota Celińska-Kopczyńska, Paweł Strawiński}
+\institute{Uniwersytet Warszawski}
+
+\titlepage
+\end{frame}
+\begin{frame}[allowframebreaks]
+\frametitle{Plan zajęć}
+  \tableofcontents
+\end{frame}
+
+\section{Wprowadzenie}
+\begin{frame}{Wprowadzenie}
+  \begin{itemize}
+  \item Analiza conjoint jest metodą badania preferencji wyrażonych
+  \item Sposób zadawania pytań opiera się na porównywaniu produktów i wyborze bardziej preferowanych rozwiązań, w miejsce pytań wprost o hierarchię ważności cech produktu
+  \item Przygotowane scenariusze pozwalają skwantyfikować, na ile poszczególne cechy przyczyniają się do preferowania produktów określonej kategorii
+   \item Może być szacowana zarówno na poziomie indywidualnym (respondent), jak i zagregowanym (cała próba)
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Intuicja}
+  \begin{itemize}
+  \item Mamy do zaoferowania kilka propozycji wyjazdów zorganizowanych:
+    \begin{itemize}
+  \item Mogą być do różnych \textbf{miejsc}: Oslo, Paryż, Sankt Petersburg, Kair
+  \item Mogą być w różnych \textbf{cenach}: 1200 zł, 2000 zł, 1500 zł, 1800 zł
+  \item Mogą być w różnych \textbf{miesiącach}: styczeń, kwiecień, lipiec, wrzesień
+    \end{itemize}
+  \item Problem: Co zaproponować naszym klientom? Które cechy powinny być podkreślone na plakatach reklamowych?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problemy związane z bezpośrednimi deklaracjami}
+  \begin{itemize}
+  \item Bezpośrednie deklaracje ważności mogą być niedoskonałe:
+    \begin{itemize}
+    \item Mają małą moc dyskryminacyjną;
+    \item Mogą podlegać uwarunkowaniom społecznym;
+    \item Ludziom czasem trudno jest określić, co jest dla nich ważne;
+    \item ,,Ważność'' jest ogólną miarą nieprzekładalną na konkretniejsze zachowania.
+    \end{itemize}
+  \item Conjoint mierzy preferencje w momencie wyboru, co jest przekładalne na zachowania konsumentów
+  \end{itemize}
+\end{frame}
+
+\section{Założenia metody}
+
+\subsection{Atrybuty i poziomy}
+\begin{frame}{Atrybuty i poziomy}
+  \begin{itemize}
+  \item \textbf{Atrybutami} określa się zmienne objaśniające opisujące dobra lub usługi
+  \item \textbf{Poziomami} nazywa się realizacje atrybutów -- poszczególne stany wyodrębnione w ramach tego samego atrybutu
+  \item Atrybuty i ich poziomy generują różne warianty dóbr nazywane \textbf{profilami}
+  \item Liczba wszystkich możliwych do wygenerowania profilów to iloczyn liczby profilów wszystkich atrybutów
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Cechy poziomów}
+  \begin{itemize}
+  \item Badane poziomy powinny być:
+    \begin{itemize}
+    \item \emph{jednoznacznie} zdefiniowane
+    \item \emph{niezależne} -- zawieranie się jednych atrybutów w innych uniemożliwia (lub znacząco utrudnia) interpretację wyników
+    \item \emph{wzajemnie wykluczające się} w ramach jednego atrybutu
+    \item obejmować możliwe rozwiązania \emph{w całej rozpiętości}
+    \end{itemize}
+  \item ograniczenia mogą dotyczyć tylko łączenia poziomów atrybutów, które wzajemnie się wykluczają
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Efekt liczby poziomów}
+  \begin{itemize}
+  \item Za duża liczba poziomów powoduje problemy -- granice możliwości poznawczych człowieka
+  \item Im więcej poziomów tym atrybut staje się ważniejszy -- należy starać się, aby liczba poziomów była mniej więcej podobna dla wszystkich atrybutów
+  \item Należy ograniczać liczbę poziomów dla atrybutów cenowych. Zakłada się, że nie powinna ta liczba przekraczać 5-6 poziomów
+  \end{itemize}
+\end{frame}
+
+\subsection{Użyteczności i ważności}
+
+\begin{frame}{Użyteczności}
+  \begin{itemize}
+  \item Użyteczności mierzone są na skalach interwałowych -- poziomy są preferowane o x punktów użyteczności
+  \item Punkt odniesienia jest arbitralny, dlatego nie możemy porównywać wartości liczbowych użyteczności między atrybutami
+  \item Przyjmuje się, że suma użyteczności poziomów danego atrybutu wynosi 0
+  \item Poziomy, które uzyskały użyteczności mniejsze niż 0 nie są ,,odrzucane'' tylko mniej preferowane
+  \item Wnioskowanie na temat rozkładu preferencji na podstawie uśrednionych lub sumowanych użyteczności może prowadzić do błędnych wniosków!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Ważności}
+  \begin{itemize}
+  \item Ważności mierzone są na skali ilorazowej od 0 do 100
+  \item Można powiedzieć, że atrybut o ważności 20\% jest dwa razy ważniejszy niż atrybut o ważności 10\%
+  \item Ważności atrybutów oblicza się jako różnice użyteczności najbardziej i najmniej preferowanego poziomu i dzieli przez sumę wszystkich różnic (dla wszystkich poziomów)
+  \end{itemize}
+\end{frame}
+
+\section{Procedura conjoint}
+
+\begin{frame}{Etapy procedury conjoint}
+  \begin{enumerate}
+  \item Specyfikacja zadania badawczego -- wybór atrybutów i ich poziomów
+  \item Określenie postaci modelu i wykorzystywanej metody conjoint
+  \item Gromadzenie danych -- jaka część profili jest ukazywana i jak profile są generowane?
+  \item Prezentacja profilów -- opis słowny, rysunek, produkt fizyczny i forma badań -- CAWI, PAPI, TI?
+  \item Wybór skali pomiaru preferencji -- skale niemetryczne i metryczne
+  \item Estymacja modelu -- modele nieparametryczne, MNK, modele wyborów dyskretnych
+  \item Analiza i interpretacja wyników
+  \end{enumerate}
+\end{frame}
+
+\section{Podział metod conjoint}
+\subsection{Full Profile conjoint (FP)}
+\begin{frame}{Full Profile conjoint (FP)}
+  \begin{itemize}
+  \item Metoda oparta na ocenie i szeregowaniu poszczególnych kart opisujących oferty
+  \item produkt opisywany jest wszystkimi badanymi cechami -- w każdej ofercie występuje inna kombinacja poziomów wszystkich cech
+  \item Kombinacje poziomów każdego z atrybutów nie są skorelowane, co pozwala oszacować wpływ każdego poziomu
+  \item Respondent dokonuje oceny chęci zakupu na skali lub szeregowania ofert
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Full Profile Conjoint -- ograniczenia}
+  \begin{itemize}
+  \item Technika nie powinna być stosowana dla większej liczby atrybutów niż 6-7
+  \item Minimalna liczba kart to
+    $$ min = liczba\ poziomow - liczba\ atrybutow + 1$$
+  \item Dla osiągnięcia stabilnych oszacowań dla każdego respondenta zaleca się trzykrotność minimum pokazanych kart
+  \end{itemize}
+\end{frame}
+
+\subsection{Adaptive conjoint (ACA)}
+\begin{frame}{Adaptive conjoint (ACA)}
+  \begin{itemize}
+  \item Technika korzysta z czterech rodzajów pytań, na podstawie których wyliczane są użyteczności każdego badanego poziomu i ważność cech:
+    \begin{enumerate}
+    \item \textbf{rangowanie poziomów} -- respondent porządkuje poziomy wewnątrz każdej cechy
+    \item \textbf{dystans między najbardziej i najmniej preferowanym} -- jak ważna jest różnica między preferowanymi poziomami
+    \item \textbf{porównywanie parami} -- profile złożone z kilku (2-3) cech na raz, skupiające się na cechach najważniejszych dla respondenta
+    \item deklarowanie \textbf{chęci zakupu} produktów najbardziej, najmniej i pośrednio preferowanych
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Adaptive conjoint -- zalety}
+  \begin{itemize}
+  \item Jedyna technika pozwalająca na analizę więcej niż 6 cech lub gdy cechy są wielopoziomowe
+  \item Umożliwia zebranie dużej liczby informacji w krótkim czasie
+  \item Wywiad ACA jest z reguły przez respondentów postrzegany jako krótszy i bardziej interesujący niż FP
+  \item Użyteczności policzone metodą ACA są bardziej wyraziste i rzadziej są źle ukierunkowane niż FP
+  \item Użyteczności cząstkowe są bardziej stabilne, mniej wrażliwe na wykluczenie pewnych kombinacji
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Adaptive conjoint -- ograniczenia}
+  \begin{itemize}
+  \item Możemy podwójnie liczyć cechy, które nie są w pełni niezależne
+  \item Respondenci mogą nie pamiętać, że wszystkie pozostałe cechy porównywanych produktów są takie same
+  \item Metoda silnie bazuje na wstępnych deklaracjach ważności, łamie więc zasady analizy, wedle których ważności te mają być dopiero oszacowane; pojawiają się problemy w przypadku niespójnych deklaracji respondentów
+  \item Może niedoszacowywać ważności ceny -- FP i CBC uważane są za lepsze do badań cenowych, ale można ważyć ważność ceny
+  \end{itemize}
+\end{frame}
+
+\subsection{Choice Based Conjoint (CBC)}
+\begin{frame}{Choice Based Conjoint (CBC)}
+  \begin{itemize}
+  \item Metoda ma symulować realne sytuacje rynkowe, gdy respondent staje przed koniecznością dokonania wyboru z zestawu oferowanych produktów
+  \item Najpierw definiuje się zestawy cech, a następnie plan eksperymentu, czyli tabelę opisującą, które produkty będą kolejno zestawiane z którymi
+  \item W każdym kroku respondentowi prezentowana jest krótka lista produktów, z których musi wybrać najbardziej preferowany albo wskazać opcję ,,nie kupię niczego'' -- niezainteresowani nie są zmuszani do wyboru
+  \item Metoda pozwala mierzyć siłę wpływu poszczególnych cech na dokonywane wybory, jak również siłę wpływu interakcji tych cech
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Choice Based Conjoint -- zalety}
+  \begin{itemize}
+  \item Sytuacje symulują rynkową rzeczywistość, jest też opcja ,,nie wybieram niczego''
+  \item Pozwala mierzyć główne efekty, jak i interakcje cech
+  \item Metoda wymaga stosunkowo niewielu decyzji podejmowanych przez respondenta (nawet do 20), aby pomiar był rzetelny
+  \item Najczęściej wykorzystywana do badań cenowych/promocji
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Choice Based Conjoint -- ograniczenia}
+  \begin{itemize}
+  \item Wybór jest nieefektywnym pomiarem -- wskazuje, co jest preferowane, ale nie wiadomo, na ile
+  \item Wymaga zwykle większych prób niż ACA
+  \item Zadanie jest bardziej złożone, więc respondent może przetwarzać mniej atrybutów (maksymalnie 6)
+  \item Bardziej złożone zadania skłaniają do uproszczonej strategii decyzyjnej (np. tylko cena)
+  \end{itemize}
+\end{frame}
+
+\subsection{Holdout Choice Scenarios}
+\begin{frame}{Holdout Choice Scenarios}
+  \begin{itemize}
+  \item Oferty wyglądają jak wybory CBC, ale nie są wykorzystywane do wyliczania użyteczności
+  \item Sprawdzamy, jaki odsetek respondentów wybrał każdą z opcji
+  \item Te same opcje definiowane są następnie w symulatorze w celu sprawdzenia przewidywanych przez model udziałów
+  \item Porównanie obserwowanych i przewidywanych udziałów pozwala na ocenę modelu
+  \end{itemize}
+\end{frame}
+
+\section{Podsumowanie}
+\begin{frame}{Mity wokół analizy conjoint}
+  \begin{itemize}
+  \item Analiza nie udzieli informacji na temat \textbf{udziałów w rynku} badanych produktów -- może pokazać w uproszczony sposób szanse produktu na rynku, ale nie będzie prognozą sprzedaży
+  \item Analiza nie powie nam o \textbf{dobrych i złych} cechach produktu, wskaże tylko, jak są względem siebie preferowane wewnątrz zdefiniowanego zbioru
+  \item Analiza nie określi \textbf{optymalnej ceny} produktu, udzieli tylko informacji o elastyczności cenowej
+  \item Nie zawsze wymagana jest \textbf{próba o dużej liczebności} -- możemy zastosować kilka typów metod conjoint, za to na mniejszej próbie
+  \item Conjoint Analysis !$=$ Discrete Choice Experiments!  
+  \end{itemize}
+\end{frame}
+
+\end{document}

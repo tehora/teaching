@@ -1,0 +1,329 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+  \definecolor{frameheadforeground}{RGB}{169,33,62}
+  \definecolor{frameheadbackground}{RGB}{255,255,255}
+
+  \usetheme{Warsaw}
+  %\setbeamercovered{transparent}
+}
+
+\setbeamercolor{structure}{fg=frameheadforeground,bg=frameheadbackground}
+
+\usepackage[utf8]{inputenc}
+\usepackage[MeX]{polski}
+\usepackage{multirow}
+\usepackage{color}
+
+\begin{document}
+
+\begin{frame}
+\title[Tytuł]{Analiza korespondencji}
+
+\author{Dorota Celińska-Kopczyńska, Paweł Strawiński}
+\institute{Uniwersytet Warszawski}
+
+\titlepage
+\end{frame}
+\begin{frame}[allowframebreaks]
+\frametitle{Plan zajęć}
+  \tableofcontents
+\end{frame}
+
+\section{Wprowadzenie}
+
+\begin{frame}{Wprowadzenie}
+  \begin{itemize}
+  \item Analiza korespondencji należy do technik analizy wielowymiarowej zmiennych jakościowych.
+  \item Polega na przeprowadzeniu operacji na \textbf{tabeli wielodzielczej}, czyli tabeli przedstawiającej rozkład obserwacji ze względu na kilka zmiennych mających różne kategorie jednocześnie.
+  \item Analiza ta dostarcza informacji na temat struktury powiązań pomiędzy zmiennymi, a jej graficzna prezentacja wyników umożliwia intuicyjne wnioskowanie odnośnie powiązań zachodzących pomiędzy kategoriami badanych zmiennych. 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Obszar zastosowań}
+  \begin{itemize}
+  \item Prezentacja graficzna zależności między zmiennymi jakościowymi.
+  \item Metoda wspomagania i uzupełniania -- nie jest zamiennikiem dla bardziej formalnych narzędzi statystycznych.
+   \item Metoda raczej ,,eksploracyjna'', ułatwiająca stawianie hipotez dla dalszych etapów badania, niż ,,konfirmacyjna''.
+  \end{itemize}
+\end{frame}
+
+\section{Analiza niezależności}
+\begin{frame}{Pojęcie niezależności}
+  \begin{itemize}
+  \item Przed przeprowadzeniem analizy korespondencji należy upewnić się, że ta technika analizy jest właściwa
+  \item Między badanymi zmiennymi musi zachodzić zależność: dążymy do odrzucenia hipotezy zerowej o niezależności badanych zmiennych
+  \item Dwa zdarzenia są \textbf{niezależne}, jeśli prawdopodobieństwo wystąpienia ich iloczynu jest równe iloczynowi ich prawdopodobieństw brzegowych:
+    $$ P(A \cap B) = P(A)P(B) $$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Test niezależności $\chi^2$}
+  \begin{itemize}
+  \item Porównuje się częstości zaobserwowane z częstościami oczekiwanymi, przy założeniu prawdziwości hipotezy zerowej
+  \item \textbf{$H_0$} -- zmienne są niezależne; \textbf{$H_1$} -- istnieje związek pomiędzy zmiennymi
+  \item Częstości oczekiwane:
+    \begin{scriptsize}
+    $$E_{ij} = \frac{\sum_{j=1}^{k} n_{j} \sum_{i=1}^{w}n_{i}}{\sum_{i=1}^{w}\sum_{j=1}^k n_{ij}} = \frac{suma\ wiersza * suma\ kolumny}{suma\ calkowita} $$
+      k -- liczba kolumn; w -- liczba wierszy
+    \end{scriptsize}
+  \item Statystyka testowa:
+   \begin{scriptsize}
+    $$\chi^2 = \sum \frac{(O_{ij}-E_{ij})^2}{E_{ij}} = \sum_{i=1}^{w}\sum_{j=1}^{k} \frac{(n_{ij}-E_{ij})^2}{E_{ij}}$$
+     $O_{ij}$ -- obserwowana częstość komórki
+    \end{scriptsize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Ocena siły związku}
+  \begin{itemize}
+  \item Test $\chi^2$ służy do sprawdzenia, czy pomiędzy zmiennymi występuje zależność. Nie odpowiada natomiast na pytanie, jak silne jest to powiązanie.
+  \item Wartości statystyki $\chi^2$ nie można stosować do pomiaru siły związku, gdyż jest ona zależna od \textbf{liczebności próby i rośnie wraz z jej wzrostem}.
+  \item Najpopularniejszymi miarami siły związku opartymi na statystyce $\chi^2$ są:
+    \begin{enumerate}
+    \item Współczynnik korelacji $\phi$;
+    \item Współczynnik zbieżności V-Cramera;
+    \item Współczynnik kontyngencji Pearsona.
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Współczynnik korelacji $\phi$}
+    $$\phi = \frac{n_{11}n_{22} - n_{12}n_{21}}{\sqrt{n_{11}n_{22}n_{12}n_{21}}}\ dla\ tabel\ 2x2$$
+  $$\phi = \sqrt{\frac{\chi^2}{n}}\ w\ p.\ p. $$
+  \begin{itemize}
+  \item W przypadku tablicy 2x2 równy jest współczynnikowi V-Cramera; przyjmuje wartości z przedziału (-1;1).
+  \item W przypadku większych tablic przyjmuje wartości z przedziału (0;1).
+  \item Wpływ wielkości próby jest eliminowany dzięki podzieleniu statystyki $\chi^2$ przez liczeność próby.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Współczynnik zbieżności V-Cramera}
+  $$V = \sqrt{\frac{\chi^2}{n*min(k-1;w-1)}}$$
+  \begin{itemize}
+  \item $V = 0$ zmienne są niezależne (brak korelacji).
+  \item $V = 1$ pomiędzy zmiennymi występuje silna funkcyjna zależność.
+  \item $0 < V < 1$ przedział możliwych wartości współczynnika V-Cramera dla tablic większych niż 2x2
+  \item $-1 < V < 1$ przedział możliwych wartości współczynnika V-Cramera dla tablic 2x2.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Współczynnik kontyngencji Pearsona}
+  $$P = \sqrt{\frac{\chi^2}{\chi^2 +n}} $$
+  \begin{itemize}
+  \item $P = 0$ zmienne są niezależne (brak korelacji).
+  \item $0 < P < 1$ przedział możliwych wartości współczynnnika kontyngencji Pearsona.
+  \item Im wartość współczynnika bliższa 1, tym silniejszy związek pomiędzy zmiennymi.
+  \end{itemize}
+\end{frame}
+
+\section{Analiza korespondencji -- metoda}
+\begin{frame}{Etapy analizy korespondencji}
+  \begin{enumerate}
+  \item Wyznaczenie profili wierszowych i kolumnowych
+  \item Wyznaczenie masy wiersza i kolumny
+  \item Obliczenie odległości między wierszami (kolumnami) za pomocą metryk $\chi^2$
+  \item Wyznaczenie przeciętnych profili wierszowych i kolumnowych
+  \item Redukcja wymiaru przestrzeni
+  \item Utworzenie i interpretacja wspólnego wykresu profili wierszowych i kolumnowych
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Przykład tabeli wielodzielczej}
+\begin{tabular}{|c|p{2cm}|p{2cm}|p{2cm}|c|}\hline
+\multirow{2}{*}{Płeć} & \multicolumn{3}{|c|}{Liczba przeczytanych książek w roku}& \multirow{2}{*}{Suma}\\
+& $<10$ & 10-20 & $>20$ & \\ \hline
+Kobieta & 15 & 20 & 5 & 40\\\hline
+Mężczyzna & 10 & 30 & 20 & 60\\\hline
+Suma & 25 & 50 & 25 & 100\\\hline
+\end{tabular}
+\end{frame}
+
+\subsection{Profile}
+\begin{frame}{Macierz korespondencji}
+  \begin{itemize}
+  \item Najpierw obliczamy \textbf{macierz korespondencji}. Dzielimy liczebności w poszczególnych komórkach tabeli wielodzielczej przez liczebność całkowitą badanej próby.
+  \item \textbf{Masa wiersza} -- suma elementów danego wiersza macierzy korespondencji.
+  \item \textbf{Masa kolumny} -- suma elementów danej kolumny macierzy korespondencji.
+  \item \textbf{Przeciętny profil kolumnowy}  -- kolumna o elementach będących masami wierszy.
+  \item \textbf{Przeciętny profil wierszowy} -- wiersz o elementach będących masami kolumn.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+  \begin{scriptsize}
+    \begin{itemize}
+\item<1->{Tabela wielodzielcza}\\
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multirow{2}{*}{Płeć} & \multicolumn{3}{|c|}{Liczba przeczytanych książek w roku}& \multirow{2}{*}{Suma}\\
+& $<10$ & 10-20 & $>20$ & \\ \hline
+Kobieta & 15 & 20 & 5 & 40\\\hline
+Mężczyzna & 10 & 30 & 20 & 60\\\hline
+Suma & 25 & 50 & 25 & \textbf{100}\\\hline
+\end{tabular}
+\item<2->Macierz korespondencji
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multirow{2}{*}{Płeć} & \multicolumn{3}{|c|}{Liczba przeczytanych książek w roku}& \multirow{2}{*}{Suma}\\
+& $<10$ & 10-20 & $>20$ & \\ \hline
+Kobieta & 0,15 & 0,20 & 0,05 & 0,40 \\\hline
+Mężczyzna & 0,10 & 0,30 & 0,20 & 0,60\\\hline
+Suma & 0,25 & 0,50 & 0,25 & 1\\\hline
+\end{tabular}
+
+\item<3->Macierz korespondencji
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multirow{2}{*}{Płeć} & \multicolumn{3}{|c|}{Liczba przeczytanych książek w roku}& \multirow{2}{*}{Suma}\\
+& $<10$ & 10-20 & $>20$ & \\ \hline
+Kobieta & 0,15 & 0,20 & 0,05 & \fcolorbox{magenta}{white}{\color{blue} 0,40}\\\hline
+Mężczyzna & 0,10 & 0,30 & 0,20 &\fcolorbox{magenta}{white}{\color{blue} 0,60}\\\hline
+Suma & \fcolorbox{blue}{white}{\fcolorbox{white}{white}{\color{magenta} 0,25}} & \fcolorbox{blue}{white}{\fcolorbox{white}{white}{\color{magenta} 0,50}} & \fcolorbox{blue}{white}{\fcolorbox{white}{white}{\color{magenta} 0,25}} &\fcolorbox{blue}{white}{\fcolorbox{magenta}{white}{1.00}}\\\hline
+\end{tabular}
+\begin{tiny}
+  \fcolorbox{magenta}{white}{\color{black} przeciętny profil kolumnowy }, \fcolorbox{blue}{white}{\color{black} przeciętny profil wierszowy}, \color{blue}{masa wiersza},  \color{magenta}{masa kolumny}
+\end{tiny}  
+\end{itemize}
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}{Macierze profili wierszowych i kolumnowych}
+  \begin{itemize}
+  \item Następnie wyznaczamy \textbf{macierze profili wierszowych i kolumnowych}.
+  \item Macierz profili wierszowych otrzymujemy, dzieląc poszczególne elementy wierszy macierzy korespondencji przez sumę wszystkich elementów tego wiersza (masę wiersza).
+  \item Macierz profili kolumnowych otrzymujemy, dzieląc poszczególne elementy kolumn macierzy korespondencji przez sumę wszystkich elementów tej kolumny (masę kolumny).
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{}
+  \begin{scriptsize}
+    \begin{itemize}
+\item<1->Macierz korespondencji
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multirow{2}{*}{Płeć} & \multicolumn{3}{|c|}{Liczba przeczytanych książek w roku}& \multirow{2}{*}{Suma}\\
+& $<10$ & 10-20 & $>20$ & \\ \hline
+Kobieta & 0,15 & 0,20 & 0,05 & \color{blue} 0,40\\\hline
+Mężczyzna & 0,10 & 0,30 & 0,20 & \color{blue}0,60\\\hline
+Suma & \color{magenta} 0,25 & \color{magenta} 0,50 & \color{magenta} 0,25 & 1\\\hline
+\end{tabular}
+
+\item<2->Macierz {\color{blue} profili wierszowych}
+\begin{tabular}{|c|c|c|c|c|}\hline
+  \multirow{2}{*}{Płeć} & \multicolumn{3}{|c|}{Liczba przeczytanych książek w roku}& \multirow{2}{*}{Suma}\\
+  & $<10$ & 10-20 & $>20$ & \\ \hline
+Kobieta & 0,37 & 0,50 & 0,13 & 0,40\\\hline
+Mężczyzna & 0,17 & 0,50 & 0,33 & 0,60\\\hline
+Suma & 0,25 & 0,50 & 0,25 & 1\\\hline
+\end{tabular}
+
+\item<3->Macierz {\color{magenta} profili kolumnowych}
+\begin{tabular}{|c|c|c|c|c|}\hline
+  \multirow{2}{*}{Płeć} & \multicolumn{3}{|c|}{Liczba przeczytanych książek w roku}& \multirow{2}{*}{Suma}\\
+  & $<10$ & 10-20 & $>20$ & \\ \hline
+Kobieta & 0,60 & 0,40 & 0,20 & 0,40\\\hline
+Mężczyzna & 0,40 & 0,60 & 0,80 & 0,60\\\hline
+Suma & 0,25 & 0,50 & 0,25 & 1\\\hline
+\end{tabular}
+
+
+\end{itemize}
+\end{scriptsize}
+\end{frame}
+
+
+
+\subsection{Odległość $\chi^2$}
+
+\begin{frame}{Definicja odległości $\chi^2$}
+  $$\chi^2 = d^2(p,p') = \sum_{j=1}^{w(k)} \frac{(p_j-p_j')^2}{\bar{p_j}} $$
+  \begin{itemize}
+  \item $d(p,p')$ -- odległość między profilami $p$ i $p'$
+  \item $p_j$, $p_j'$ -- elementy profilu $p$ i $p'$ (częstości względne)
+  \item $\bar{p_j}$ -- elementy przeciętnego profilu
+  \item Odległości te obliczane są zarówno dla profili wierszowych, jak i kolumnowych.
+  \item Kategorie z relatywnie większą liczbą elementów wywierają mniejszy wpływ na odległość niż kategorie z mniejszą liczbą obserwacji.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Przykład -- obliczenia dla profili wierszowych}
+  \begin{itemize}
+  \item Macierz profili wierszowych
+\begin{tabular}{|p{2cm}|c|c|c|p{2cm}|}\hline
+\multirow{2}{*}{Płeć} & \multicolumn{3}{|c|}{Liczba przeczytanych książek (...)}& \multirow{2}{*}{P. prof. kol.}\\
+& $<10$ & 10-20 & $>20$ & \\ \hline
+Kobieta & 0,37 & 0,50 & 0,13 & 0,40\\\hline
+Mężczyzna & 0,17 & 0,50 & 0,33 & 0,60\\\hline
+P. prof. wiersz. & 0,25 & 0,50 & 0,25 & 1\\\hline
+\end{tabular}
+  \end{itemize}
+  $$\chi^2 = \frac{(0,37-0,17)^2}{0,25} + \frac{(0,5-0,5)^2}{0,5} + \frac{(0,13-0,33)^2}{0,25}=0,32 $$
+\end{frame}
+
+\subsection{Rozkład względem wartości osobliwych}
+
+\begin{frame}{Rozkład względem wartości osobliwych}
+  \begin{itemize}
+  \item Każdy wiersz macierzy profili o wymiarach $wxk$ może zostać przedstawiony jako punkt w przestrzeni k-wymiarowej, generowanej przez kolumny macierzy.
+  \item Każda kolumna macierzy profili może zostać przedstawiona jako punkt w przestrzeni w-wymiarowej, generowanej przez wiersze tej macierzy.
+  \item Korzystając z analizy korespondencji dążymy do przedstawienia analizowanego zbioru punktów w przestrzeni maksymalnie trójwymiarowej, przy zachowaniu jak największej informacji o zróżnicowaniu wierszy i kolumm.
+  \item W tym celu korzysta się z \textbf{rozkładu względem wartości osobliwych} (\emph{Singular Value Decomposition -- SVD}).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Rozkład względem wartości osobliwych -- cd}
+  \begin{itemize}
+  \item Metoda SVD polega na przedstawieniu macierzy A rzędu $r$ (o~wymiarze $w$ x $k$) w postaci iloczynu trzech macierzy:
+    $$A_{wxk} = U_{wxr} D_{rxr} V_{rxk}$$
+    \begin{scriptsize}
+    \item U, V -- macierze ortonormalne ($U'U = I_{rxr}$ i $V'V = I_{kxk}$);
+    \item D -- macierz diagonalna utworzona z niezerowych wartości własnych macierzy $A'A$, uporządkowanych nierosnąco $\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_r > 0$
+    \item Kolumny macierzy U to wektory własne macierzy $AA'$
+    \item Kolumny macierzy V to wektory własne macierzy $A'A$
+    \end{scriptsize}
+    \item W praktyce z otrzymanego na podstawie tej metody układu współrzędnych do rzutowania interesują nas 2-3 wektory własne.
+  \end{itemize}
+\end{frame}
+
+\subsection{Bezwładność (Inercja)}
+\begin{frame}{Pojęcie bewzładności (inercji)}
+  \begin{itemize}
+  \item \textbf{Bezwładność (Inercja)} w analizie korespondencji odpowiada pojęciu wariancji.
+  \item Całkowita bezwładność to miara roproszenia profili wokół odpowiednich przeciętnych profili. Całkowita bezwładność wierszy pokazuje, jak bardzo poszczególne profile wierszowe różnią się od przeciętnego profilu wierszowego.
+  \end{itemize}
+  $$\Lambda^2 = \sum m* d^2$$
+  \begin{scriptsize}
+    gdzie $m$ -- masa wiersza (kolumny); $d^2$ -- kwadrat odległości między profilem wiersza (kolumny) a odpowiednim przeciętnym profilem. 
+  \end{scriptsize}
+\end{frame}
+
+\begin{frame}{Inercja całkowita}
+  \begin{itemize}
+  \item Bewzładność dla wierszy jest równa bezwładności dla kolumn. Dlatego najczęściej podaje się tylko jedną wartość nazywaną \textbf{bezwładnością (inercją) całkowitą}.
+  \item $\chi^2 = \Lambda^2n$ -- z powiązania inercji z wartością testu $\chi^2$ wynika, że im mniejsza inercja, tym mniejsza szansa wystąpienia istotnego związku między wierszami i kolumnami tabeli wielodzielczej.
+  \item Jeśli $\Lambda^2 = 0$ wtedy różnica między profilami a profilem przeciętnym jest niewielka, co oznacza niewielkie roproszczenie wokół profilu przeciętnego. Analogicznie wysoka wartość $\Lambda^2$ oznacza duże rozproszenie wokół profilu przeciętnego.
+  \item Maksymalna wartość bezwładności to $min(k, w)-1$.
+  \end{itemize}
+\end{frame}
+
+\section{Interpretacja}
+
+\subsection{Ocena reprezentatywności danych w przestrzeni dwuwymiarowej}
+\begin{frame}{Związek pomiędzy bezwładnością a wartościami własnymi}
+  $$\Lambda^2 = \sum_{i=1}^{min(w,k)-1} \lambda^2_i $$
+  \begin{itemize}
+  \item Dzięki tej zależności możemy wybrać liczbę wymiarów odtwarzających jak najpełniejszą informację zawartą w wyjściowej tablicy kontyngencji
+  \item Jeżeli $\frac{\lambda^2_1+\lambda^2_2}{\Lambda^2}$ przyjmuje wartość przekraczającą 0,75 przestrzeń dwuwymiarową można uznać za dobrą reprezentację początkowych danych.
+   \item Najlepsza konfiguracja: dwie pierwsze kolumny macierzy V do reprezentacji kolumn i dwie pierwsze kolumny macierzy U do reprezentacji wierszy macierzy kontyngencji.
+   \end{itemize}
+\end{frame}
+
+\subsection{Interpretacja}
+\begin{frame}{Interpretacja wyników}
+  \begin{itemize}
+  \item Analizujemy położenie punktów obrazujących kategorie z~wierszy i kolumn tablicy kontyngencji.
+  \item Jeśli okazuje się, że dwuwymiarowe rozwiązanie zapewnia zadowalające dopasowanie, to kategorie wierszowe, które są bliskie sobie mają zbliżony rozkład (profil) w poszczególnych kolumnach. Analogicznie interpretujemy katogorie kolumnowe.
+  \item Badamy rozmieszczenie punktów względem centrum rzutowania oraz punktów odpowiadających kategoriom różnych zmiennych względem siebie.
+  \item Kategorie zmiennych położone na wykresie w niedalekiej odległości od siebie wskazują kombinacje pojawiające się częściej niż jest to oczekiwane przy założeniu niezależności między wierszami i kolumnami.
+  \end{itemize}
+\end{frame}
+
+\end{document}

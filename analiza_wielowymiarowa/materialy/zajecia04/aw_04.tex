@@ -1,0 +1,228 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+  \definecolor{frameheadforeground}{RGB}{169,33,62}
+  \definecolor{frameheadbackground}{RGB}{255,255,255}
+
+  \usetheme{Warsaw}
+  %\setbeamercovered{transparent}
+}
+
+\setbeamercolor{structure}{fg=frameheadforeground,bg=frameheadbackground}
+
+\usepackage[utf8]{inputenc}
+\usepackage[MeX]{polski}
+
+\begin{document}
+
+\begin{frame}
+\title[Tytuł]{Analiza kanoniczna}
+
+\author{Dorota Celińska-Kopczyńska, Paweł Strawiński}
+\institute{Uniwersytet Warszawski}
+
+\titlepage
+\end{frame}
+\begin{frame}[allowframebreaks]
+\frametitle{Plan zajęć}
+  \tableofcontents
+\end{frame}
+
+\section{Wprowadzenie}
+
+\begin{frame}{Wprowadzenie}
+  \begin{itemize}
+  \item Analiza kanoniczna jest uogólnieniem liniowej regresji wielorakiej na dwa zbiory zmiennych (np. zbioru zmiennych objaśniających $X_i$ i zbioru zmiennych objaśnianych $Y_i$)
+   \item Technika polega na interpretacji zależności pomiędzy dwoma typami nowych zmiennych: zmiennymi kanonicznymi
+   \item Pierwszy typ zmiennych kanonicznych jest liniową funkcją pierwszego zbioru zmiennych wejściowych, a drugi liniową funkcją drugiego zbioru zmiennych wejściowych
+   \item Zmienne kanoniczne mają maksymalnie wyjaśniać zależności liniowe pomiędzy obydwoma zbiorami zmiennych
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Pary zmiennych kanonicznych}
+  \begin{itemize}
+  \item Cel to maksymalizacja kwadratu współczynnika korelacji między zmiennymi kanonicznymi
+  \item Pierwsza para zmiennych kanonicznych wyjaśnia \underline{większość} związków pomiędzy zbiorami zmiennych wejściowych, ale żeby w pełni opisać związki pomiędzy nimi potrzeba wyznaczyć kolejne pary zmiennych
+  \item Żadna ze zmiennych należących do kolejnej pary zmiennych kanonicznych nie jest skorelowana z żadną ze zmiennych kanonicznych tego samego typu, gdyż wyjaśnia zależności między zbiorami zmiennych wejściowych w innych wymiarach
+  \item Korelacje pomiędzy kolejnymi parami zmiennych kanonicznych są coraz słabsze
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Przykłady pytań i problemów badawczych}
+  \begin{itemize}
+  \item Jak \textbf{wyniki z egzaminów maturalnych} studenta wpływają na jego \textbf{wyniki z przedmiotów}: mikroekonomia 1; algebra liniowa; podstawy prawa; język angielski?
+ \item Jaki jest związek pomiędzy \textbf{charakterystykami respondenta} a jego \textbf{zadowoleniem}: z pracy, z życia osobistego, z sytuacji finansowej?
+ \item Jaki jest związek pomiędzy \textbf{parametrami ciała} a \textbf{wynikami} poszczególnych \textbf{testów sprawnościowych}?
+  \end{itemize}
+\end{frame}
+
+\section{Metoda}
+
+\begin{frame}{Założenia}
+  \begin{itemize}
+  \item Dysponujemy dwoma zbiorami zmiennych: $Y_i= (Y_1, \dots, Y_n)$ i~$X_i= (X_1, \dots, X_m)$
+  \item Naszym zadaniem jest znalezienie takiej kombinacji liniowej
+zmiennych ze zbioru $Y_i$, która możliwie najsilniej koreluje ze zmiennymi ze zbioru $X_i$
+  \item Oznacza to, ze szukamy wektorów współczynników $a_i$ i $b_i$ takich, że korelacja $a_i'X_i$ i $b_i'Y_i$ jest możliwie największa
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Tworzenie zmiennych kanonicznych}
+  \begin{itemize}
+  \item \textbf{Zmienne kanoniczne} to kombinacje liniowe zbiorów zmiennych wejściowych:
+  $$ U = A'X_i $$
+  $$ V = B'Y_i $$
+  \begin{scriptsize}
+  \item $U = [u_{li}]$ to macierz zmiennych kanonicznych pierwszego typu; $u_{li}$ to wartość $l$-tej zmiennej w $i$-tym obiekcie
+  \item $V = [v_{li}]$ to macierz zmiennych kanonicznych drugiego typu; $v_{li}$ to wartość $l$-tej zmiennej w $i$-tym obiekcie
+  \item $A'= [a_{jl}]$ to transponowana macierz wag kanonicznych, $a_{lj}$ to waga kanoniczna $j$-tej zmiennej w zbiorze $X_i$ dla $l$-tej zmiennej kanonicznej pierwszego typu
+  \item $B'= [b_{jl}]$ to transponowana macierz wag kanonicznych, $b_{lj}$ to waga kanoniczna $j$-tej zmiennej w zbiorze $Y_i$ dla $l$-tej zmiennej kanonicznej drugiego typu
+ \end{scriptsize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Tworzenie zmiennych kanonicznych: założenia}
+  \begin{itemize}
+    \item Wektory $u_i$ i $u_j$ są nieskorelowane między sobą
+    \item Wektory $v_i$ i $v_j$ są nieskorelowane między sobą
+    \item Korelacje $corr(u_i; v_i)$ tworzą nierosnący ciąg odpowiadający możliwie największym cząstkowym korelacjom
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Obliczanie wag kanonicznych 1}
+  \begin{itemize}
+  \item \textbf{Wagi kanoniczne} mają maksymalizować korelację pomiędzy kolejnymi parami zmiennych kanonicznych: \textbf{korelację kanoniczną}
+  \item Wyznacza się je w oparciu o łączną macierz korelacji zmiennych:
+    $$
+    R =
+    \begin{bmatrix}
+      R_{YY} & R_{XY} \\
+      R_{YX} & R_{XX} \\
+    \end{bmatrix}
+    $$
+    \begin{scriptsize}
+     \item $R_{YY}$ to macierz korelacji zmiennych objaśnianych $Y_i$
+     \item $R_{XX}$ to macierz korelacji zmiennych objaśniających $X_i$
+     \item $R_{XY}$, $R_{YX}$ to macierze korelacji obu rodzajów zmiennych
+    \end{scriptsize}  
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Obliczanie wag kanonicznych 2}
+  \begin{itemize}
+  \item Na początku poszukujemy wag kanonicznych pierwszej pary zmiennych kanonicznych, ponieważ ta para w największym stopniu wyjaśnia zależności pomiędzy zbiorami $X_i$ i $Y_i$; następnie wag kanonicznych kolejnych par zmiennych kanonicznych
+  \item Wagi kanoniczne maksymalizują współczynnik korelacji kanonicznej:
+    $$
+    r_{u_i,v_i} = \frac{(a'_iR_{XY}b_i)}{\sqrt{(a'_iR_{XX}a_i)(b'_iR_{YY}b_i)}}
+    $$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Obliczanie wag kanonicznych 3}
+  \begin{itemize}
+  \item Wagi kanoniczne wyznacza się poprzez rozwiązanie układów równań jednorodnych o postaci:
+    $$
+    \left\{
+    \begin{array}{ccc}
+      (R^{-1}_{XX}R'_{XY}R^{-1}_{YY}R_{YX} - \lambda_iI)a_i = 0 \\
+      \\
+      (R^{-1}_{YY}R'_{YX}R^{-1}_{XX}R_{XY} - \lambda_iI)b_i = 0
+    \end{array}
+    $$
+    
+    \begin{scriptsize}
+    \item $\lambda_i$ to pierwiastek charakterystyczny (wartość własna) odpowiedniej macierzy
+    \end{scriptsize}  
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Obliczanie wag kanonicznych 4}
+  \begin{itemize}
+  \item Liczba niezerowych pierwiastków charakterystycznych równań wyznacznikowych jest równa $s = min(n, m)$
+  \item Po malejącym uporządkowaniu wartości własnych znajdujemy wagi kanoniczne dla kolejnych par zmiennych kanonicznych, wstawiając do układu równań kolejne wartości własne
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Rozwiązanie}
+  \begin{itemize}
+  \item  Wagi kanoniczne określają wkład poszczególnych zmiennych wejściowych w tworzenie zmiennych kanonicznych 
+  \item Zmienne kanoniczne danego typu nie są ze sobą skorelowane, dlatego suma kwadratów współczynników korelacji
+kanonicznej dla wszystkich par zmiennych kanonicznych stanowi miarę stopnia \textbf{wyjaśnienia zmienności poprzez
+  związki liniowe zbioru zmiennych objaśnianych przez zbiór zmiennych objaśniających}
+$$R^2 = \sum_{l=1}^{s}r^2_{u_i,v_i}$$
+  \end{itemize}
+\end{frame}
+
+\section{Diagnostyka}
+
+\begin{frame}{Uwagi praktyczne}
+  \begin{itemize}
+  \item Analizowane zmienne powinny mieć rozkład wielowymiarowy normalny
+  \item W zbiorze danych nie występują obserwacje odstające (miara Cooka, wartości dźwigni, etc.)
+  \item Zmienne nie są również współliniowe
+  \item Próba musi mieć dostatecznie dużą liczebność (nieformalnie: liczba obserwacji powinna być większa od co najmniej 20$\times$liczba zmiennych)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Określanie liczby par zmiennych kanonicznych -- założenia}
+  \begin{itemize}
+  \item Zakładamy, że co najmniej $k$ pierwszych korelacji kanonicznych jest istotnych i testujemy hipotezę o istotności ostatnich $s - k$ korelacji kanonicznych
+  \item Wykorzystujemy statystykę testową $\chi^2$
+  \item Weryfikacja istotności par zmiennych kanonicznych odbywa się w sposób iteracyjny
+  \item Jeśli wartość statystyki testowej jest mniejsza od wartości krytycznej przy przyjętym poziomie istotności, to przynajmniej jeden współczynnik korelacji kanonicznej o indeksie $k + 1$ jest istotny
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Określanie liczby par zmiennych kanonicznych -- cd}
+  \begin{itemize}
+  \item Wiedząc, że kolejne korelacje kanoniczne są coraz mniejsze, przyjmujemy na początek procesu weryfikacji $k = 0$ -- co najmniej pierwsza z korelacji kanonicznych jest istotna
+  \item Po braku podstaw do odrzucenia hipotezy o istotności, zwiększamy kolejno indeks $k$ o jeden i testujemy istotność kolejnych współczynników korelacji kanonicznej
+  \item W ostatecznej analizie uwzględniamy wszystkie pary zmiennych kanonicznych, dla których współczynniki korelacji kanonicznej są istotne
+  \end{itemize}
+\end{frame}
+
+\section{Interpretacja}
+
+\begin{frame}{Interpretacja wyników}
+  \begin{itemize}
+\item Żeby zinterpretować zmienne kanoniczne przedstawiamy zbiory zmiennych wejściowych jako kombinacje liniowe
+  zmiennych kanonicznych:
+  $$ Y_i = CV $$
+  $$ X_i = DU $$
+  \begin{scriptsize}
+    \item $C = [c_{jl}]$ to macierz kanonicznych ładunków czynnikowych, $c_{jl}$ jest kanonicznym
+ładunkiem czynnikowym znajdującym się przy $j$-tej zmiennej wejściowej i $l$-tej zmiennej kanonicznej pierwszego typu
+    \item $D = [d_{il}]$ to macierz kanonicznych ładunków czynnikowych, $d_{il}$ jest kanonicznym ładunkiem czynnikowym znajdującym się przy $i$-tej zmiennej wejściowej i $l$-tej zmiennej kanonicznej drugiego typu
+  \end{scriptsize}  
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Interpretacja wyników -- cd}
+  \begin{itemize}
+  \item Kanoniczne ładunki czynnikowe są współczynnikami korelacji liniowej pomiędzy zmiennymi pierwotnymi a zmiennymi kanonicznymi
+    $$c_{jl}= r_{y_j,v_l}; j = 1, 2, \dots , n; l = 1, 2, \dots, s;$$
+    $$d_{il}= r_{x_i,v_l}; i = q + 1, q + 2, \dots, n + m; l = 1, 2, \dots, s;$$
+  \item Im większa wartosc bezwzględna ładunku czynnikowego, tym większy nacisk należy kłaść na daną zmienną przy interpretacji zmiennej kanonicznej
+  \item Przy interpretacji zmiennych kanonicznych bierzemy pod uwagę zmienne wejściowe silnie skorelowane
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Wariancja wyodrębniona}
+  \begin{itemize}
+  \item Dzieląc sumy kwadratów współczynników korelacji danej zmiennej kanonicznej przez liczbę zmiennych wejściowych odpowiedniego typu uzyskujemy wartość \textbf{wariancji wyodrębnionej}
+  \item Wartość ta określa jaki procent wariancji zmiennych wejściowych wyjaśnia średnio dana zmienna kanoniczna
+    $$\bar{R^2_{u_l}} = \frac{1}{n} \sum_{j=1}^{n} c^2_{jl}, l = 1,2,\dots,s;$$
+    $$\bar{R^2_{v_l}} = \frac{1}{m} \sum_{j=n+1}^{n+m} d^2_{jl}, l = 1,2,\dots,s;$$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Współczynniki redundancji}
+  \begin{itemize}
+  \item \textbf{Współczynniki redundancji} są miarą stopnia wyjaśnienia wariancji zmiennych pierwotnych danego typu przez zmienne kanoniczne drugiego typu:
+    $$R^2_{v_l,Y_i} = \bar{R^2_{v_l}}\lambda_l, l = 1, 2, \dots, s;$$
+    $$R^2_{u_l,X_i} = \bar{R^2_{u_l}}\lambda_l, l = 1, 2, \dots, s;$$
+  \item Czyli dowiadujemy się, na ile nadwymiarowy jest jeden zbiór danych wobec drugiego zbioru danych
+  \end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,239 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+  \definecolor{frameheadforeground}{RGB}{169,33,62}
+  \definecolor{frameheadbackground}{RGB}{255,255,255}
+
+  \usetheme{Warsaw}
+  %\setbeamercovered{transparent}
+}
+
+\setbeamercolor{structure}{fg=frameheadforeground,bg=frameheadbackground}
+
+\usepackage[utf8]{inputenc}
+\usepackage[MeX]{polski}
+
+\begin{document}
+
+\begin{frame}
+  
+\title[Tytuł]{Analiza wielowymiarowa}
+\subtitle{Wprowadzenie}
+\author{Dorota Celińska-Kopczyńska, Paweł Strawiński}
+\institute{Uniwersytet Warszawski}
+\date{Zajęcia 1 \\ 8 października 2019}
+
+\titlepage
+\end{frame}
+\begin{frame}[allowframebreaks]
+\frametitle{Plan zajęć}
+  \tableofcontents
+\end{frame}
+
+\section{Sprawy organizacyjne}
+
+\begin{frame}{Prowadzący}
+  \begin{itemize}
+  \item dr Dorota Celińska-Kopczyńska
+    \begin{itemize}
+     \item mail: dot@mimuw.edu.pl
+     \item strona: \url{mimuw.edu.pl/~dot}
+     \item dyżur: piątek 12:00, MIM, p. 1700, po umówieniu e-mailem
+    \end{itemize}
+  \item dr hab. Paweł Strawiński
+    \begin{itemize}
+    \item mail: pstrawinski@wne.uw.edu.pl
+    \item strona: \url{coin.wne.uw.edu.pl/pstrawinski}
+    \item dyżur: wtorek 17:15, WNE, p. 304, po umówieniu e-mailem
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Kontakt mailowy}
+  \begin{itemize}
+  \item W celu utrzymania porządku podczas kontaktu z Państwem prosimy o stosowanie formatu tytułu maili:\\
+    \begin{center}
+      AW\_Nazwisko\_skrót\_sprawy
+    \end{center}
+  \item Niedopuszczalne jest rozpoczynanie zupełnie nowego tematu (np. wysłania propozycji tematu pracy zaliczeniowej) w wątku dotyczącym innej sprawy
+  \item \textbf{Kontakt wyłącznie z wykorzystaniem adresów poczty uniwersyteckiej}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Forma zajęć}
+  \begin{itemize}
+  \item Zajęcia w formie konwersatorium, 14 spotkań w semestrze zimowym
+  \item Wymagana rejestracja w USOS
+  \item Przyjście na inną grupę niż jest się zapisanym możliwe po wcześniejszym powiadomieniu mailowo prowadzących i~uzyskaniu ich zgody (w zależności od liczby wolnych miejsc)
+  \item Nie dopuszczamy do sytuacji, gdy liczba uczestników jest większa niż komputerów :)
+  \end{itemize}
+
+\end{frame}
+
+\section{Zasady zaliczenia}
+
+\begin{frame}{Elementy zaliczenia}
+  \begin{enumerate}
+  \item Obecność: obowiązkowa, dopuszczalne co najwyżej 3 nieobecności, powyżej NK
+  \item Raport z przeprowadzonego badania: 60\%
+  \item 30 minutowa prezentacja wygłoszona w trakcie ostatnich 3~zajęć: 15\%
+  \item Prace domowe: 25\%
+  \end{enumerate}
+  %\begin{alert}{Uwaga!}
+  %  Osoby, które nie oddadzą prac w wymaganych terminach, nie otrzymają zaliczenia
+  %\end{alert}
+\end{frame}
+
+\begin{frame}{Prace domowe}
+  \begin{itemize}
+  \item 2 prace domowe (jedna techniczna, druga interpretacyjna) z~ok.~3~tygodniowym terminem oddania
+  \item Rozwiązania indywidualne -- Państwo decydują, czy chcą rozwiązać
+  \item Brak punktów z prac domowych nie uniemożliwia zaliczenia przedmiotu, ale nie można też uzyskać oceny końcowej wyższej niż 4 (db)
+  \item Prace domowe stanowią element Państwa aktywności -- nie poprawiamy ich w drugim terminie
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Raporty i prezentacje}
+  \begin{itemize}
+  \item Wykonanie badania w grupach. Preferujemy grupy 3 osobowe. Prosimy unikać grup składających się wyłącznie z osób z II roku studiów II stopnia
+  \item W każdej grupie powinno powstać co najmniej 7 zespołów, ale co najwyżej~9
+  \item Można dobrać się w zespół z osobami z grupy z innej godziny
+  \item W razie problemów w zespole, prosimy nas informować, postaramy się znaleźć rozwiązanie
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Raporty i prezentacje -- tematyka}
+  \begin{itemize}
+  \item Tematy do wyboru z poniżej listy, zgłaszane mailowo \underline{do obojga prowadzących}:
+    \begin{enumerate}
+    \item analiza korelacji i analiza ANOVA
+    \item analiza korespondencji i analiza korelacji
+    \item analiza kanoniczna
+    \item analiza dyskryminacji
+    \item metody segmentacji
+    \item analiza czynnikowa, inne techniki redukcji wymiaru ($\star$)
+    \item analiza conjoint
+    \end{enumerate}
+  \end{itemize}
+   \begin{alert}{UWAGA!}
+     W każdej grupie wszystkie tematy muszą zostać wyczerpane, o~przydzieleniu tematu decyduje kolejność zgłoszeń.
+   \end{alert}
+\end{frame}
+
+\begin{frame}{Zgłoszenia tematów}
+  \begin{itemize}
+    \item Zgłoszenie powinno zawierać: wybraną technikę badawczą, hipotezy/cel,
+      opis źródła/bazy danych, propozycję literatury
+    \item Zgłoszenie może być:
+      \begin{enumerate}
+      \item \textbf{zakceptowane} (odpowiedź ``akceptuję temat'' od prowadzącego)
+      \item \textbf{negocjowane} (prowadzący zwracają się o uszczegółowienie lub modyfikację)
+      \item \textbf{odrzucone} (prowadzący podaje merytoryczne/formalne powody, dla których podany temat nie może zostać zrealizowany)
+      \end{enumerate}
+  \end{itemize}
+   \begin{alert}{UWAGA!}
+     Zgłoszenia znacząco niepełne nie otrzymują statusu negocjowanych (nie ma np. rezerwacji techniki)
+   \end{alert}
+\end{frame}
+
+\begin{frame}{Wymagania dotyczące raportu}
+  \begin{itemize}
+  \item Wyraźnie sformułowana hipoteza badawcza lub cel
+  \item Krótki wstęp teoretyczny wraz z odniesieniami do istotnej literatury
+  \item Literatura: co najmniej 3 artykuły angielskojęzyczne
+  \item Opis i źródło użytych danych
+  \item Sformułowany model
+  \item Wyniki przeprowadzonej empirycznej analizy wraz z~komentarzem, wynikającymi z nich wnioskami oraz odniesieniem do literatury
+  \end{itemize}  
+  \end{frame}
+
+\begin{frame}{Czego nie proponować}
+  \begin{itemize}
+  \item Badanie ma być ćwiczeniem z wykorzystaniem ``realnych'' danych, tak jak w życiu zawodowym
+  \item Ważne jest jak Państwo sobie radzą i reagują na pojawiające się problemy, a nie spełnienie wszystkich założeń techniki
+  \item (Realność danych) Prosimy nie korzystać ze zbiorów danych pochodzących z~podręczników, tutoriali, stron wykładowców
+  \item (Antyplagiat) Prosimy nie korzystać z Diagnozy Społecznej (badanie przerwane) ani powtarzać analiz przeprowadzanych podczas zajęć
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Wymagania dotyczące raportu -- strona techniczna}
+  \begin{itemize}
+  \item Raport w formacie pdf
+  \item Raport powinien być wyczerpujący -- forma artykułu, a nie logu z programu
+  \item Oprogramowanie dowolne (ostrożnie z SaaS) -- ważna jest poprawność uzyskanych wyników i ich opis
+  \item Prosimy również zadbać o schludność raportu (brak literówek, poprawność odwołań do literatury, estetykę tabel i opisów...)
+  \item 30 000 znaków (ok. 18 stron bez obrazków), przekroczenie limitu należy zgłosić i uzasadnić wykładowcom
+  \item Nie czytamy prac anonimowych i bez ponumerowanych stron
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Prezentacje}
+  \begin{itemize}
+  \item Prezentacje mają za zadanie zasugerować Państwu, co należałoby poprawić przed oddaniem końcowego raportu
+  \item \textbf{Nie oceniamy zawartości merytorycznej prezentacji}, jedynie technikę prezentacji
+  \item Pokazanie wyników badania zapewnia więcej komentarzy -- warto je pokazać \underline{nawet}, jeśli wiedzą Państwo, że są nie do końca prawidłowe lub błędne
+  \item Od Państwa zależy podział zadań w grupie (\textbf{nie każda osoba musi prezentować}) -- grupa oceniana jest jako całość
+  \item Jeśli zasugerowane merytoryczne poprawki zostaną uwzględnione w końcowym raporcie wcześniejsze błędy/uchybienia nie mają znaczenia
+  \item Prezentacji nie poprawiamy w drugim terminie (publiczność!)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Prezentacje -- na co zwracać uwagę}
+  \begin{itemize}
+  \item Prezentacja != odczyt
+  \item Staramy się mówić do sali (rozumiemy, że np. przy wynikach wygodniej jest spojrzeć na rzutnik)
+  \item Generalnie \emph{less is more} na slajdach, ale umiar jest jeszcze lepszy
+  \item Nie tracimy czasu na to, co publiczność wie -- technikę omawiamy tylko, jeśli istotnie wykracza poza zakres omawiany podczas zajęć
+  \item Prezentacja powinna trwać ok. 20 min (z tolerancją 4 min.)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Na co zwrócić uwagę przy opisie badania?}
+  \begin{itemize}
+  \item Czy temat jest ważny?
+  \item Czy temat jest osadzony w teorii ekonomii lub czy jest to badanie interdyscyplinarne (tło teoretyczne)?
+  \item Czy hipotezy są weryfikowalne i poprawnie sformułowane?
+  \item Opis bazy danych
+  \item Szacowanie parametrów modelu
+  \item Diagnostyka, określenie ogólności wyników, ograniczenia badania
+  \item Weryfikacja hipotez (o ile są)
+  \item Interpretacja wyników, wnioski, odniesienie do literatury
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Terminarz}
+  \begin{enumerate}
+  \item Zgłoszenie składu osobowego grup i tematów prac zaliczeniowych: \textbf{6~listopada 20:00 - 26 listopada 20:00}
+  \item Przesłanie wybranej bazy danych \underline{do obojga prowadzących}: \textbf{6~listopada 20:00 -  30~listopada 20:00} (jeśli baza jest ogólnodostępna wystarczy link i wskazanie zmiennych)
+  \item Prezentacje w kolejności tematów zgodnej z omówieniem ich na zajęciach: \textbf{7, 14, 21 stycznia}
+  \item Przesłanie finalnej wersji raportu oraz dostarczenie papierowej wersji pracy na WNE: \textbf{nie później niż w 7 dniu po terminie prezentacji}
+  \end{enumerate}
+\end{frame}
+
+\section{O czym będą te zajęcia?}
+
+\begin{frame}{Kilka słów o analizie wielowymiarowej}
+  \begin{itemize}
+  \item Analiza wielowymiarowa to zbiór metod i technik analizy danych zawierających informacje o wielu obiektach opisanych jednocześnie za pomocą wielu zmiennych
+  \item Jej celem jest redukcja dużego zbioru danych, uproszczenie ich struktury oraz zapewnienie przejrzystej interpretacji wyników
+  \item Analizę wielowymiarową można również zastosować do sortowania, grupowania, skupiania obiektów wykazujących podobne cechy
+  \item Dodatkowo za jej pomocą można badać zależności pomiędzy zmiennymi, ich siłę powiązań oraz wyciągać wnioski
+  \item Jest to również warsztat narzędzi przydatnych podczas analizy zmiennych jakościowych
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Omawiane techniki analizy}
+  \begin{itemize}
+  \item Powtórzenie statystyki oraz testy (nie)parametryczne
+  \item Analiza korelacji
+  \item Analiza wariancji i kowariancji (ANOVA)
+  \item Analiza kanoniczna
+  \item Analiza korespondencji
+  \item Analiza dyskryminacji
+  \item Metody grupowania i segmentacji
+  \item Analiza czynnikowa, inne techniki redukcji wymiaru ($\star$)
+  \item Analiza conjoint
+  \end{itemize}
+\end{frame}
+
+\end{document}

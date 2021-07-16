@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+
+\usepackage[left=2.2cm,top=2.2cm,right=2.2cm,bottom=2.2cm]{geometry}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{pdflscape}
+\usepackage{multirow}
+\linespread{1.3}
+\makeatletter
+
+\title{prezentacje}
+\author{Dorota Celińska}
+
+\begin{document}
+\begin{landscape}
+\begin{table}[h]
+\begin{tabular}{|l|c|c|c|}
+\hline
+                           & \textbf{9:45}        & \textbf{11:30}                  & \textbf{16:45}                    \\ \hline \hline
+\multirow{3}{*}{data 1}    & nazwisko, nazwisko   & nazwisko, nazwisko              & nazwisko, nazwisko                \\ \cline{2-4} 
+                           & nazwisko, nazwisko   & nazwisko, nazwisko              & nazwisko, nazwisko                \\ \cline{2-4} 
+                           & nazwisko             &                                 &                                   \\ \hline \hline
+\multirow{3}{*}{data 2}    & nazwisko, nazwisko   & nazwisko, nazwisko              & nazwisko, nazwisko                \\ \cline{2-4} 
+                           & nazwisko, nazwisko   & nazwisko, nazwisko              & nazwisko, nazwisko                \\ \cline{2-4} 
+                           & nazwisko, nazwisko   &                                 &                                   \\ \hline \hline
+\multirow{3}{*}{data 3}    & nazwisko, nazwisko   & nazwisko, nazwisko              & nazwisko, nazwisko                \\ \cline{2-4} 
+                           & nazwisko, nazwisko   & nazwisko, nazwisko              & nazwisko, nazwisko                \\ \cline{2-4} 
+                           &                      & nazwisko, nazwisko              & nazwisko, nazwisko                \\ \hline
+\end{tabular}
+\end{table}
+\end{landscape}
+
+\end{document}
